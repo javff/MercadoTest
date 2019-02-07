@@ -4,6 +4,6 @@
 ## Installation
 
 ```ogdl
-git clone ruta
+git clone https://github.com/javff/MercadoTest.git
 pod install
 ```
