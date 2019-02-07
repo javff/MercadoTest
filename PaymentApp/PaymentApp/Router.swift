@@ -10,7 +10,6 @@ import AmountUI
 import PrettyAlertUI
 import PaymentMethod
 
-
 class Router: NSObject{
     
     //MARK: - Implement Singleton Class

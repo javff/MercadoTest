@@ -13,10 +13,8 @@ public class ConfigurationSettings{
     public let baseURL:String
     public let publicKey:String
     
-    init(baseURL: String, publicKey: String){
-        
+    public init(baseURL: String, publicKey: String){
         self.baseURL = baseURL
         self.publicKey = publicKey
-        
     }
 }

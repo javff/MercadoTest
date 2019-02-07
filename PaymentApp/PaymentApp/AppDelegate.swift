@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import BaseNetwork
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+       
+        // Configure BaseAPI //
+        let configuration = ConfigurationSettings(baseURL: "https://api.mercadopago.com/v1",
+                                                  publicKey: "444a9ef5-8a6b-429f-abdf-587639155d88")
+        BaseAPI.configure(configuration: configuration)
+        
+        // Launch First Screen //
         let router = Router.shared
         let principalView = router.instanceRootVC()
         self.window?.rootViewController = principalView

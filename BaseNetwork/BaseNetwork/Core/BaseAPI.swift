@@ -13,7 +13,9 @@ import Siesta
 public class BaseAPI {
     
     //MARK: - implement Singleton class //
-    public static let shared = BaseAPI()
+    
+    /// shared instace of BaseAPI, is required call BaseApi.configure(configuration:ConfigurationSettings)
+    public static var shared: BaseAPI!
     
     //MARK: - Vars
     public let service: Service
@@ -21,9 +23,8 @@ public class BaseAPI {
     
     //MARK: - INIT
     
-    private init() {
+    private init(configuration: ConfigurationSettings) {
         
-        let configuration = BaseAPI.setConfiguration()
         self.configuration = configuration
         self.service = Service(baseURL: configuration.baseURL,
                                standardTransformers: [.text, .image, .json])
@@ -39,14 +40,19 @@ public class BaseAPI {
         }
     }
     
+    //MARK: - Funcs
+
+    ///call this method is required for init BaseAPI.shared
+    public class func configure(configuration: ConfigurationSettings){
+        BaseAPI.shared = BaseAPI(configuration: configuration)
+    }
     
     
     //MARK: - helpers methods
     
     private class func setConfiguration() -> ConfigurationSettings{
         
-        
-        //MARK: - FAKE API CONFIGURATION
+        //MARK:  FAKE API CONFIGURATION
         return ConfigurationSettings(baseURL: "https://api.mercadopago.com/v1",
                                      publicKey: "444a9ef5-8a6b-429f-abdf-587639155d88")
         
