@@ -1,0 +1,58 @@
+
+# Uncomment this line to define a global platform for your project
+platform :ios, '11.0'
+# Uncomment this line if you're using Swift
+use_frameworks!
+
+workspace 'Payment'
+
+
+## DEF XCODE PROJECTS ###
+
+###### APPS ###########
+xcodeproj 'PaymentApp'
+
+###### FRAMEWORKS ###########
+xcodeproj 'BaseNetwork/BaseNetwork'
+xcodeproj 'PaymentMethod/PaymentMethod'
+
+
+##### DEF pods #######
+def base_network_pods
+  pod 'Siesta/Alamofire', '~> 1.0'
+
+end
+
+def payment_method_pods
+  pod 'SDWebImage', '~> 4.0'
+  pod 'Siesta/UI', '~> 1.0'
+
+end
+
+### POD FOR FRAMEWORKS ###########
+target 'BaseNetwork' do
+    xcodeproj 'BaseNetwork/BaseNetwork'
+    base_network_pods
+end
+
+target 'PaymentMethod' do
+  xcodeproj 'PaymentMethod/PaymentMethod'
+  base_network_pods
+  payment_method_pods
+end
+
+####### PODS FOR APPS #############
+
+target 'PaymentApp' do
+   xcodeproj 'PaymentApp/PaymentApp'
+   base_network_pods
+   payment_method_pods
+end
+
+
+###### PODS For UNIT Testing #######
+
+target 'PaymentMethodUnitTest' do
+  base_network_pods
+  payment_method_pods
+end
