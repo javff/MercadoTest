@@ -58,7 +58,7 @@ public class BanksView: UIViewController {
         
         // create background message //
         let label = UILabel(frame: CGRect(origin: view.center, size: CGSize(width: UIScreen.main.bounds.width - 20, height: 300)))
-        label.text = "No hay bancos disponible para el método de pago seleccionado."
+        label.text = "No hay bancos disponibles para el método de pago seleccionado."
         label.numberOfLines = 0
         label.textAlignment = .center
         tableView.backgroundView = label
