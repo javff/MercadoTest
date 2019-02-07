@@ -10,11 +10,11 @@ workspace 'Payment'
 ## DEF XCODE PROJECTS ###
 
 ###### APPS ###########
-xcodeproj 'PaymentApp'
+project 'PaymentApp'
 
 ###### FRAMEWORKS ###########
-xcodeproj 'BaseNetwork/BaseNetwork'
-xcodeproj 'PaymentMethod/PaymentMethod'
+project 'BaseNetwork/BaseNetwork'
+project 'PaymentMethod/PaymentMethod'
 
 
 ##### DEF pods #######
@@ -31,12 +31,12 @@ end
 
 ### POD FOR FRAMEWORKS ###########
 target 'BaseNetwork' do
-    xcodeproj 'BaseNetwork/BaseNetwork'
+    project 'BaseNetwork/BaseNetwork'
     base_network_pods
 end
 
 target 'PaymentMethod' do
-  xcodeproj 'PaymentMethod/PaymentMethod'
+  project 'PaymentMethod/PaymentMethod'
   base_network_pods
   payment_method_pods
 end
@@ -44,7 +44,7 @@ end
 ####### PODS FOR APPS #############
 
 target 'PaymentApp' do
-   xcodeproj 'PaymentApp/PaymentApp'
+   project 'PaymentApp/PaymentApp'
    base_network_pods
    payment_method_pods
 end
